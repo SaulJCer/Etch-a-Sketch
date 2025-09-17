@@ -9,8 +9,19 @@ function makeGridSquare() {
     tempGridSquare.style.width = '50px';
     tempGridSquare.style.height = "50px";
     tempGridSquare.style.border = '1.5px solid orange';
-    gridContainer.appendChild(tempGridSquare);
+    tempGridSquare.className = "gridSqaure"
+    return tempGridSquare;
+};
 
-}
+function makeGridRowContainer() {
+    const tempGridRow = document.createElement('div');
+    tempGridRow.className = 'rowContainer';
 
-makeGridSquare();
+    for (i = 1; i <= 16; i++) {
+        tempGridRow.appendChild(makeGridSquare());
+    }
+
+    gridContainer.appendChild(tempGridRow);
+};
+
+makeGridRowContainer();
