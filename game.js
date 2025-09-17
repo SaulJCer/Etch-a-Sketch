@@ -1,6 +1,13 @@
 
 const gridContainer = document.querySelector(".grid-container");
 
+
+// edit for grid container
+// can be done in style css
+gridContainer.style.display = "flex";
+gridContainer.style.justifyContent = 'center';
+gridContainer.style.alignItems = 'center'; //maybe not needed
+
 squareGridSize = 16;
 
 function makeGridSquare() {
@@ -17,11 +24,14 @@ function makeGridRowContainer() {
     const tempGridRow = document.createElement('div');
     tempGridRow.className = 'rowContainer';
 
-    for (i = 1; i <= 16; i++) {
+    for (i = 1; i <= squareGridSize; i++) {
         tempGridRow.appendChild(makeGridSquare());
     }
+    
+    tempGridRow.style.display = "flex";
 
     gridContainer.appendChild(tempGridRow);
 };
+
 
 makeGridRowContainer();
