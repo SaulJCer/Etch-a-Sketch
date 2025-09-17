@@ -33,5 +33,11 @@ function makeGridRowContainer() {
     gridContainer.appendChild(tempGridRow);
 };
 
+function createGrid() {
+    for (i = 1; i <= squareGridSize; i++) {
+        console.log(i);
+        makeGridRowContainer();
+    }
+}
 
-makeGridRowContainer();
+createGrid();
