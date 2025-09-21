@@ -3,6 +3,7 @@ const newGridButton = document.querySelector(".newGridButton");
 
 newGridButton.addEventListener('click', () => {
     gridContainer.textContent = '';
+    squareGridSize = prompt("Enter a number ");
     createGrid(squareGridSize);
     console.log("YOU CLICKED ME");
 })
