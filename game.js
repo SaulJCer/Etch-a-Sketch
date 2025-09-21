@@ -1,4 +1,12 @@
 
+const newGridButton = document.querySelector(".newGridButton");
+
+newGridButton.addEventListener('click', () => {
+    gridContainer.textContent = '';
+    createGrid(squareGridSize);
+    console.log("YOU CLICKED ME");
+})
+
 const gridContainer = document.querySelector(".grid-container");
 
 
@@ -30,11 +38,11 @@ function makeGridSquare(gridRow) {
     gridRow.appendChild(tempGridSquare);
 };
 
-function makeGridRowContainer() {
+function makeGridRowContainer(gridSize) {
     const tempGridRow = document.createElement('div');
     tempGridRow.className = 'rowContainer';
 
-    for (i = 1; i <= squareGridSize; i++) {
+    for (i = 1; i <= gridSize; i++) {
         makeGridSquare(tempGridRow);
     }
     
@@ -43,13 +51,15 @@ function makeGridRowContainer() {
     return tempGridRow;
 };
 
-function createGrid() {
-    for (j = 1; j <= squareGridSize; j++) {
-        let gridRow = makeGridRowContainer();
+function createGrid(gridSize) {
+    for (j = 1; j <= gridSize; j++) {
+        let gridRow = makeGridRowContainer(gridSize);
         gridContainer.appendChild(gridRow);
     }
 }
 
 
 
-createGrid();
+createGrid(squareGridSize);
+
+
