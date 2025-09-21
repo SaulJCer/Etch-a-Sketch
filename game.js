@@ -18,6 +18,7 @@ gridContainer.style.justifyContent = 'center';
 gridContainer.style.alignItems = 'center'; //maybe not needed
 gridContainer.style.flexDirection = "column";
 
+
 squareGridSize = 16;
 
 
@@ -26,10 +27,15 @@ squareGridSize = 16;
 function makeGridSquare(gridRow) {
     const tempGridSquare = document.createElement('div');
 
-    tempGridSquare.style.width = '50px';
-    tempGridSquare.style.height = "50px";
+    // tempGridSquare.style.width = '50px';
+    // tempGridSquare.style.height = "50px";
     tempGridSquare.style.border = '1.5px solid orange';
-    tempGridSquare.className = "gridSqaure"
+    tempGridSquare.style.display = "flex";
+    tempGridSquare.style.flex = '1 1 20px';
+    tempGridSquare.style.height = '20px';
+    tempGridSquare.style.width = '20px'
+    tempGridSquare.style.flexShrink = '1';
+    tempGridSquare.className = "gridSqaure";
 
     // add event listner for hover effect
     tempGridSquare.addEventListener('mouseover', () => {
