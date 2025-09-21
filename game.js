@@ -11,6 +11,9 @@ gridContainer.style.flexDirection = "column";
 
 squareGridSize = 16;
 
+
+
+
 function makeGridSquare(gridRow) {
     const tempGridSquare = document.createElement('div');
 
@@ -18,6 +21,12 @@ function makeGridSquare(gridRow) {
     tempGridSquare.style.height = "50px";
     tempGridSquare.style.border = '1.5px solid orange';
     tempGridSquare.className = "gridSqaure"
+
+    // add event listner for hover effect
+    tempGridSquare.addEventListener('mouseover', () => {
+        tempGridSquare.style.backgroundColor = "black"
+    })
+
     gridRow.appendChild(tempGridSquare);
 };
 

@@ -8,4 +8,4 @@ each row will be in its own container
 
 1) function that create a square element
 2) function that creates a row of square elements
-3) function that creates 
+3) function that creates the ful grid
