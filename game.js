@@ -3,10 +3,29 @@ const newGridButton = document.querySelector(".newGridButton");
 
 newGridButton.addEventListener('click', () => {
     gridContainer.textContent = '';
-    squareGridSize = prompt("Enter a number ");
+    squareGridSize = askUserForGridSize();
     createGrid(squareGridSize);
     console.log("YOU CLICKED ME");
 })
+
+// come back to this line of code def not finished 
+
+function askUserForGridSize() {
+    userGridSize = prompt("Enter a number ");
+    console.log(typeof userGridSize);
+    return (checkIfBiggerThan100(userGridSize)); 
+}
+
+function checkIfBiggerThan100(userGridSize) {
+    while (userGridSize > 100 || 
+           userGridSize < 1
+          ) {
+        userGridSize = prompt("Enter a number thats a max 100 and no lower than");
+        console.log(userGridSize);
+    }
+
+    return userGridSize;
+}
 
 const gridContainer = document.querySelector(".grid-container");
 
@@ -17,6 +36,7 @@ gridContainer.style.display = "flex";
 gridContainer.style.justifyContent = 'center';
 gridContainer.style.alignItems = 'center'; //maybe not needed
 gridContainer.style.flexDirection = "column";
+gridContainer.style.width= "800px"
 
 
 squareGridSize = 16;
@@ -54,6 +74,7 @@ function makeGridRowContainer(gridSize) {
     }
     
     tempGridRow.style.display = "flex";
+    tempGridRow.style.flexShrink = '1';
 
     return tempGridRow;
 };

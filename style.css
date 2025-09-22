@@ -8,3 +8,8 @@
     height: 20px;
     flex: 1 1 20px;
 } */
+
+body {
+    height: 1vh;
+    width: 1vw;    
+}
