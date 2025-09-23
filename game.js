@@ -1,8 +1,9 @@
 
 const newGridButton = document.querySelector(".newGridButton");
+const maxContainerSize = 9000;
 
 newGridButton.addEventListener('click', () => {
-    gridContainer.textContent = '';
+    // gridContainer.textContent = '';
     squareGridSize = askUserForGridSize();
     createGrid(squareGridSize);
     console.log("YOU CLICKED ME");
@@ -44,18 +45,19 @@ squareGridSize = 16;
 
 
 
-function makeGridSquare(gridRow) {
+function makeGridSquare(gridRow, squareSize) {
     const tempGridSquare = document.createElement('div');
 
     // tempGridSquare.style.width = '50px';
     // tempGridSquare.style.height = "50px";
+    tempGridSquare.className = "gridSqaure";
     tempGridSquare.style.border = '1.5px solid orange';
     tempGridSquare.style.display = "flex";
     tempGridSquare.style.flex = '1 1 20px';
-    tempGridSquare.style.height = '20px';
-    tempGridSquare.style.width = '20px'
+    tempGridSquare.style.height = squareSize + 'px';
+    tempGridSquare.style.width = squareSize + 'px';
     tempGridSquare.style.flexShrink = '1';
-    tempGridSquare.className = "gridSqaure";
+    
 
     // add event listner for hover effect
     tempGridSquare.addEventListener('mouseover', () => {
@@ -65,12 +67,12 @@ function makeGridSquare(gridRow) {
     gridRow.appendChild(tempGridSquare);
 };
 
-function makeGridRowContainer(gridSize) {
+function makeGridRowContainer(gridSize, squareSize) {
     const tempGridRow = document.createElement('div');
     tempGridRow.className = 'rowContainer';
 
     for (i = 1; i <= gridSize; i++) {
-        makeGridSquare(tempGridRow);
+        makeGridSquare(tempGridRow, squareSize);
     }
     
     tempGridRow.style.display = "flex";
@@ -80,8 +82,10 @@ function makeGridRowContainer(gridSize) {
 };
 
 function createGrid(gridSize) {
+     gridContainer.textContent = '';
+    const sizeOfEachSquare = maxContainerSize / (gridSize * gridSize);
     for (j = 1; j <= gridSize; j++) {
-        let gridRow = makeGridRowContainer(gridSize);
+        let gridRow = makeGridRowContainer(gridSize, sizeOfEachSquare);
         gridContainer.appendChild(gridRow);
     }
 }
