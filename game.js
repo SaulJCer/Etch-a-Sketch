@@ -5,7 +5,7 @@ newGridButton.addEventListener('click', () => {
     gridContainer.textContent = '';
     squareGridSize = prompt("Enter a number ");
     createGrid(squareGridSize);
-    console.log("YOU CLICKED ME");
+    // console.log("YOU CLICKED ME");
 })
 
 const gridContainer = document.querySelector(".grid-container");
@@ -22,20 +22,36 @@ squareGridSize = 16;
 
 
 
+function randomColor() {
+    const randomColorNumber = Math.floor(Math.random() * (256));
+    return randomColorNumber;
+}
+
+function randomRgbColor () {
+    const rgbColorNumber1 = randomColor();
+    const rgbColorNumber2 = randomColor();
+    const rgbColorNumber3 = randomColor();
+    return (`rgb(${rgbColorNumber1}, ${rgbColorNumber2}, ${rgbColorNumber3})`);
+}
 
 function makeGridSquare(gridRow) {
     const tempGridSquare = document.createElement('div');
 
     tempGridSquare.style.width = '50px';
     tempGridSquare.style.height = "50px";
-    tempGridSquare.style.border = '1.5px solid orange';
+    tempGridSquare.style.border = '1.5px solid black';
     tempGridSquare.className = "gridSqaure"
-
+    let gridSquareOpactiy = 0;
     // add event listner for hover effect
-    tempGridSquare.addEventListener('mouseover', () => {
-        tempGridSquare.style.backgroundColor = "black"
-    })
+    const handleMouseOver = () => {
+            tempGridSquare.style.backgroundColor = randomRgbColor()};
+    tempGridSquare.addEventListener('mouseover',handleMouseOver, {once: true});
 
+    tempGridSquare.addEventListener('mouseover', () => {
+        gridSquareOpactiy += 10;
+        
+        tempGridSquare.style.opacity = `${gridSquareOpactiy}%`;
+    });
     gridRow.appendChild(tempGridSquare);
 };
 
