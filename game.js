@@ -1,6 +1,8 @@
 
 const newGridButton = document.querySelector(".newGridButton");
+let containerSize = 960;
 let squareGridSize = 16;
+
 
 
 
@@ -43,10 +45,13 @@ function randomRgbColor () {
 function makeGridSquare(gridRow) {
     const tempGridSquare = document.createElement('div');
 
-    tempGridSquare.style.width = '50px';
-    tempGridSquare.style.height = "50px";
+    tempGridSquare.style.width = `${squareSize}px`;
+    tempGridSquare.style.height = `${squareSize}px`;
     tempGridSquare.style.border = '1.5px solid black';
     tempGridSquare.className = "gridSqaure"
+    tempGridSquare.style.display = "flex";
+    tempGridSquare.style.flexShrink = '1';
+
     let gridSquareOpactiy = 0;
     // add event listner for hover effect
     const handleMouseOver = () => {
@@ -75,6 +80,7 @@ function makeGridRowContainer(gridSize) {
 };
 
 function createGrid(gridSize) {
+    squareSize = (containerSize / gridSize)
     for (j = 1; j <= gridSize; j++) {
         let gridRow = makeGridRowContainer(gridSize);
         gridContainer.appendChild(gridRow);
