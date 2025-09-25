@@ -1,9 +1,15 @@
 
 const newGridButton = document.querySelector(".newGridButton");
+let squareGridSize = 16;
+
+
 
 newGridButton.addEventListener('click', () => {
     gridContainer.textContent = '';
     squareGridSize = prompt("Enter a number ");
+    while (squareGridSize < 0 || squareGridSize > 100 || isNaN(squareGridSize))  {
+        squareGridSize = prompt("Enter a number between 0 - 100 ");
+    };
     createGrid(squareGridSize);
     // console.log("YOU CLICKED ME");
 })
@@ -18,7 +24,7 @@ gridContainer.style.justifyContent = 'center';
 gridContainer.style.alignItems = 'center'; //maybe not needed
 gridContainer.style.flexDirection = "column";
 
-squareGridSize = 16;
+
 
 
 
